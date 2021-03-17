@@ -101,3 +101,26 @@ class Datum:
 
 
 datum = Datum()
+# print(datum.JD(2001, 10, 11, 23.74))
+# print(datum.JD(1800, 1, 1, 0))
+# print(datum.JD(1900, 1, 1, 0))
+# print(datum.JD(2000, 1, 1, 0))
+# print(datum.JD(2020, 3, 18, 6.5))
+# print(datum.MJD(1234, 11, 15, 11.2))
+
+# print(datum.JD_2_MJD(datum.JD(1700, 1, 1, 0)))
+# print(datum.Datum(2456789.0))
+
+# print(datum.DatumEllenor(1100, 2, 29))
+# print(datum.DatumEllenor(1582, 10, 10))
+# print(datum.DatumEllenor(2100, 2, 29))
+# print(datum.DatumEllenor(1700, 2, 29))
+# print(datum.DatumEllenor(1582, 10, 10))
+
+# print(datum.Nap(2030, 4, 1))
+# print(datum.Nap(2024, 9, 15))
+# print(datum.Nap(1848, 3, 15))
+
+# print(datum.Szokoev(3100))
+
+# print(69*365 + 30 + 31 + 25 + 31 + 21)
