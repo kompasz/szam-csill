@@ -52,7 +52,7 @@ class Husvet:
         utolso_honap = 4
         utolso_nap = 1
 
-        for i in range(1583, 2999):
+        for i in range(2101, 2200):
             honap, nap = self.husvet_datum_gergely(i)
             if honap * 31 + nap > utolso_honap * 31 + utolso_nap:
                 utolso_honap = honap
@@ -139,12 +139,29 @@ husvet = Husvet()
 
 # print(husvet.husvetok_tablazat())
 
+h = husvet.husvetok_tablazat()
+# print(len(h))
+for i in range(len(h)):
+    j = i + 1
+    while h[i] != h[j] and j < len(h)-1:
+        j+=1
+        # print(j)
+    print (j - i)
+
 # print(husvet.husvet_legkorabbi_datum())
 
 # print(husvet.husvet_legkesobbi_datum())
 
-# print(husvet.husvet_leggyakoribb_datum(1600, 2600))
+# h = husvet.husvet_leggyakoribb_datum(2001, 2100)
+# print(h)
+# print(h[3])
 
-# print(husvet.kov_husvet_biz_datumon(4, 21))
+# print(husvet.kov_husvet_biz_datumon(4, 1))
 
 # print(husvet.husvetok_egybeesnek())
+
+
+# print(husvet.husvet_datum_gergely(2030))
+
+# print(husvet.husvet_datum_gergely(2030))
+# print(husvet.husvet_datum_gergely(2020))
