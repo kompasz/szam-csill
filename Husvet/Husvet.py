@@ -139,14 +139,14 @@ husvet = Husvet()
 
 # print(husvet.husvetok_tablazat())
 
-h = husvet.husvetok_tablazat()
-# print(len(h))
-for i in range(len(h)):
-    j = i + 1
-    while h[i] != h[j] and j < len(h)-1:
-        j+=1
-        # print(j)
-    print (j - i)
+# h = husvet.husvetok_tablazat()
+# # print(len(h))
+# for i in range(len(h)):
+#     j = i + 1
+#     while h[i] != h[j] and j < len(h)-1:
+#         j+=1
+#         # print(j)
+#     print (j - i)
 
 # print(husvet.husvet_legkorabbi_datum())
 
@@ -161,7 +161,7 @@ for i in range(len(h)):
 # print(husvet.husvetok_egybeesnek())
 
 
-# print(husvet.husvet_datum_gergely(2030))
+print(husvet.husvet_datum_gergely(2030))
 
 # print(husvet.husvet_datum_gergely(2030))
 # print(husvet.husvet_datum_gergely(2020))
