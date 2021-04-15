@@ -124,3 +124,7 @@ datum = Datum()
 # print(datum.Szokoev(3100))
 
 # print(69*365 + 30 + 31 + 25 + 31 + 21)
+
+print(datum.Datum(2456789.111))
+print(datum.Datum(2458937.14035))
+# print(datum.JD(2020, 3, 28, 0))
