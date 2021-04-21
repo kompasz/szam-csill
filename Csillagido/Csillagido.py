@@ -11,8 +11,8 @@ class Csillagido:
     # be_UT   - tetszoleges valasztott idopont (viliagido)
     def GSTH(self, be_MJD , be_UT = 0):
         be_MJD0 = math.trunc(be_MJD)
-        JD = be_MJD + 2400000.5
-        JD0 = be_MJD0 + 2400000.5
+        JD = be_MJD
+        JD0 = be_MJD0
         # print(JD, JD0)
         T = (JD - 2451545) / 36525
         T0 = (JD0 - 2451545) / 36525
@@ -39,5 +39,6 @@ class Csillagido:
 cs = Csillagido()
 # print(cs.GSTH(58940))
 # print(cs.GSTH(58936.40449))
+print(cs.GSTH(2456711.4321))
 
-print(cs.csillagido(15.5))
+# print(cs.csillagido(15.5))
