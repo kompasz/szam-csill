@@ -90,4 +90,38 @@ nap = Napkelte()
 # print(nap.Nap_ekl(2458942.875))
 # print(nap.Nap_equ(2458942.875))
 # print(nap.kel_nyugszik(4.5, 15, 45, 0))
-print(nap.KN(2020, 4, 3, 46.770439, 23.591423, 2))
+# print(nap.KN(2020, 4, 3, 46.770439, 23.591423, 2))
+
+# print(nap.Nap_equ(2458948))
+print(nap.Nap_equ(2458947.50))
+print(nap.kel_nyugszik(1.145912754428465, 7.300275411264041, 25, 46))
+
+# 2458849
+# ev = 2458849
+# for i in range(0, 12):
+#     c = 0
+#     for j in range(0, 30):
+#         ev = ev + 1
+#         a1, b1 = nap.Nap_ekl(ev)
+#         a2, b2 = nap.Nap_ekl(ev+1)
+#         c = c + a2 - a1
+#     print(i, c%360)
+#         c = c + b
+# for i in range(2458849, 2459214):
+#     print(nap.Nap_ekl(i))
+# # 2459214
+
+# a = 2458924
+# b = 2459146
+
+# a1, a2 = nap.Nap_ekl(a)
+# b1, b2 = nap.Nap_ekl(b)
+# print(b2 - a2)
+# print(a1 - b1)
+
+# print(nap.Nap_ekl(2458947.79167))
+# print(nap.Nap_ekl(2458947.75))
+# print(nap.Nap_ekl(2458947.93750))
+
+
+print(nap.kel_nyugszik(15, 22, 46, 0))
