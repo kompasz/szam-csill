@@ -41,9 +41,21 @@ class Napkelte:
         return ra * 3.8197, math.degrees(dec)
 
     # kel_nyugszik(4.5,15,45,0)=21.4638 248.5293 11.5362 111.4707
+    # be_RA -           α
+    # be_Dec -          δ
+    # be_szelesseg -    φ
+    # be_magassag -     h
     def kel_nyugszik(self, be_RA, be_Dec, be_szelesseg, be_magassag):
+        t = math.acos(-math.tan(math.radians(be_szelesseg))*math.tan(math.radians(be_Dec)))
 
-        pass
+        A_nyugta = math.degrees(math.acos(-math.sin(math.radians(be_Dec))/math.cos(math.radians(be_szelesseg))))
+        A_kelte = 360 - A_nyugta
+
+        s_kelte = be_RA - math.acos(-math.tan(math.radians(be_szelesseg))*math.tan(math.radians(be_Dec)))*3.8197 + 24
+        s_nyugta = (be_RA + math.acos(-math.tan(math.radians(be_szelesseg))*math.tan(math.radians(be_Dec)))*3.8197)%24
+
+        return (s_kelte, A_kelte, s_nyugta, A_nyugta)
+
 
     def KN(self, be_ev, be_honap, be_nap, be_szelesseg, be_hosszusag, be_idozona):
 
@@ -52,4 +64,5 @@ class Napkelte:
 nap = Napkelte()
 # print(nap.Nap_ekl(2458942.7850))
 # print(nap.Nap_ekl(2458942.875))
-print(nap.Nap_equ(2458942.875))
+# print(nap.Nap_equ(2458942.875))
+print(nap.kel_nyugszik(4.5, 15, 45, 0))
