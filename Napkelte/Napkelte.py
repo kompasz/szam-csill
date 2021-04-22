@@ -56,13 +56,38 @@ class Napkelte:
 
         return (s_kelte, A_kelte, s_nyugta, A_nyugta)
 
-
+    # λ - be_szelesseg
+    # φ - be_hosszusag
+    # α - ra 
+    # δ - dec
     def KN(self, be_ev, be_honap, be_nap, be_szelesseg, be_hosszusag, be_idozona):
+        
+        a = float(10000.0*be_ev + 100.0*be_honap + be_nap)
+        if be_honap <= 2:
+            be_honap += 12
+            be_ev -= 1
+        if a < 15821004.1:
+            b = -2 + math.trunc(float((be_ev + 4716)/4)) - 1179
+        else:
+            b = math.trunc(float(be_ev/400)) - math.trunc(float(be_ev/100)) + math.trunc(float(be_ev/4))
+        a = 365.0*be_ev - 679004.0
+        JD = 2400000.5 + a + b + math.trunc(float(30.6001*(be_honap+1))) + be_nap
+        print(JD)
 
-        pass
+        # alfa, beta = self.Nap_ekl(JD)
+        # print(alfa, beta)
+        ra, dec = self.Nap_equ(JD)
+        print(ra, dec)
+
+        t = math.acos((math.sin(math.radians(be_hosszusag)) - math.sin(math.radians(be_hosszusag)*math.sin(math.radians(dec)))) / (math.cos(math.radians(be_hosszusag))*math.cos(math.radians(dec))))
+        print(t)
+        s_kelte = ra - t
+        s_nyugta = ra + t
+        return (s_kelte, s_nyugta)
 
 nap = Napkelte()
 # print(nap.Nap_ekl(2458942.7850))
 # print(nap.Nap_ekl(2458942.875))
 # print(nap.Nap_equ(2458942.875))
-print(nap.kel_nyugszik(4.5, 15, 45, 0))
+# print(nap.kel_nyugszik(4.5, 15, 45, 0))
+print(nap.KN(2020, 4, 3, 46.770439, 23.591423, 2))
