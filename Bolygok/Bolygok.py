@@ -87,6 +87,18 @@ class Bolygok:
 
         return E
 
+    def Rot_x(self, phi):
+        forgatasi_matrix = [[1, 0, 0], [0, math.cos(phi), math.sin(phi)], [0, -math.sin(phi), math.cos(phi)]]
+        return forgatasi_matrix
+    
+    def Rot_y(self, phi):
+        forgatasi_matrix = [[math.cos(phi), 0, -math.sin(phi)], [0, 1, 0], [math.sin(phi), 0, math.cos(phi)]]
+        return forgatasi_matrix
+    
+    def Rot_z(self, phi):
+        forgatasi_matrix = ([[math.cos(phi), math.sin(phi), 0], [-math.sin(phi), math.cos(phi), 0], [0, 0, 1]])
+        return forgatasi_matrix
+
     def Bolygo_ekl(self, n, julian_evszazadok):
 
         x = self.Palyaelemek(n, julian_evszazadok)
@@ -95,6 +107,22 @@ class Bolygok:
         x_ = x[0] * (math.cos(E) - x[1])
         y_ = x[0] * math.sqrt(1 - pow(x[1], 2)) * math.sin(E)
         z_ = 0
+
+        print(x_)
+        
+        # rekl=Rz(−Ω)Rx(−I)Rz(−ω)r′
+        egy = self.Rot_z(math.radians(-1*x[3]))
+        ketto = self.Rot_x(math.radians(-1*x[2]))
+        harom = self.Rot_z(math.radians(-1*x[4]))
+        
+        forgat = np.multiply(np.multiply(egy, ketto), harom)
+
+        print(forgat)
+
+        r_ = np.matrix([[x_], [y_], [z_]])
+
+
+        return forgat* r_
 
     # TO DO 
     #  Rotate matrix 
@@ -110,7 +138,21 @@ bolygok  = Bolygok()
 
 # n= 1, T= 1eseténakívántko ordináták:
 # 0.247511514559500   -0.347901498789926  -0.051119438302676
-print(bolygok.Bolygo_ekl(1, 1))
+# print(bolygok.Bolygo_ekl(1, 1))
 # n= 5, T= 0.2eseténakívántko ordináták:
 # 4.715437497290996   -1.635903557871500  -0.0981287957651891
 # print(bolygok.Bolygo_ekl(5, 0.2))
+
+
+
+
+# TEST
+# print(bolygok.Bolygo_ekl(5, 0.2222))
+
+# print( 9.53667594 + -0.00125060 * 0.20344969199)
+# print(0.38709927 + 0.2 * 0.00000037)
+# print( 19.18916464 + -0.00196176 * 0.20344969199)
+# print(1.30439695 + 0.325 * -0.00183714)
+# print( 0.00677672 + 0.25 * -0.00004107)
+# print((-4.55343205 + 0.444 * 19140.30268499)%360)
+print(0.00859048 + 0.20344969199 * 0.00005105)
